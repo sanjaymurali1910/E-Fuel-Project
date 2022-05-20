@@ -1,0 +1,105 @@
+{% extends 'User_index.html'%} {% load static %} {% block content %}
+
+<head>
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--
+    
+    TemplateMo 546 Sixteen Clothing
+    
+    https://templatemo.com/tm-546-sixteen-clothing
+    
+    -->
+    
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+        <link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+    
+</head>
+
+<div class="carousel">
+    <div class="container-fluid">
+        <div class="owl-carousel">
+            <div class="carousel-item">
+                <div class="ev2-img">
+                    <img src="{% static 'img/liya.jpg.jpg' %}" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h3>Washing & Detailing</h3>
+                    <h1>Keep your Car Newer</h1>
+                    <p>
+                        Electric cars (EVs) and plug-in hybrid vehicles are relatively new on the market and the fact that they use electricity to propel themselves means a new infrastructure has been put into place, one which few are familiar with.
+                    </p>
+                    <a class="btn btn-custom" href="">Explore More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{% static 'img/ev9.jpg' %}" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h3>Washing & Detailing</h3>
+                    <h1>Quality service for you</h1>
+                    <p>
+                        Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis orci sodales
+                    </p>
+                    <a class="btn btn-custom" href="">Explore More</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{% static 'img/ev6.jpg' %}" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h3>Washing & Detailing</h3>
+                    <h1>Exterior & Interior Washing</h1>
+                    <p>
+                        Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam
+                    </p>
+                    <a class="btn btn-custom" href="">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+          <div class="col-md-12">
+            <div class="filters-content">
+                <div class="row grid">
+                  {% for i in bunks %}
+                    <div class="col-lg-4 col-md-4 all des">
+                      <a href="#"><img src="{{ i.image.url }}" alt="" style="width: 475px; height: 220px;"></a>
+                      <div class="product-item">
+                        <div class="down-content">
+                          <a href="#"><h4>{{i.bunk_name}}</h4></a>
+                          <h6>{{i.vehicle_type}}</h6>
+                          <p>{{i.address}}</p>
+                        </div>
+                        <a href="{% url 'User_booking' i.id %}" class="btn btn-primary">Book Now</a>
+                      </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+            
+            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+{%endblock%}

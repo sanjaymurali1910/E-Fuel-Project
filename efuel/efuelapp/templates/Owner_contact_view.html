@@ -1,0 +1,41 @@
+{% extends 'Owner_index.html'%} {% load static %} {% block content %}
+
+<section class="ftco-section">
+    <div class="container-fluid mt-5 mb-5 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section mt-3 mb-3"><span style="color: rgb(168, 168, 168);">Contacts</span></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>ID no.</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Subject</th>
+                          <th>Message</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in contacts %}
+                        <tr class="alert" role="alert">
+                          <td scope="row">{{ i.id }}</td>
+                          <td scope="row">{{ i.name }}</td>
+                          <td scope="row">{{ i.email }}</td>
+                          <td scope="row">{{ i.subject }}</td>
+                          <td scope="row">{{ i.message }}</td>
+                        </tr>
+                        {%endfor%}
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

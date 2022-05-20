@@ -1,0 +1,53 @@
+{% extends 'SuperAdmin_index.html'%} {% load static %} {% block content %}
+<section class="pb-5 mb-5">
+<div class="container-fluid mt-4 pt-5 pb-5 mb-5">
+        <center>
+            <h2 class="heading-section mt-3 mb-5 "><span style="color: rgb(168, 168, 168);">Bunk Details</span></h2>
+        </center>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>Bunk Name</th>
+                          <th>Vehicle types</th>
+                          <th>Connectors</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Address</th>
+                          <th>City</th>
+                          <th>State</th>
+                          <th>Country</th>
+                          <th>Pincode</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in bunkreq %}
+                        <tr class="alert" role="alert">
+                          <td scope="row">{{ i.bunk_name }}</td>
+                          <td>{{ i.vehicle_type }}</td>
+                          <td>{{ i.connector }}</td>
+                          <td>{{ i.email }}</td>
+                          <td>{{ i.phone }}</td>
+                          <td>{{ i.address }}</td>
+                          <td>{{ i.city }}</td>
+                          <td>{{ i.state }}</td>
+                          <td>{{ i.country }}</td>
+                          <td>{{ i.pincode }}</td>
+                          <td><button class="btn btn-primary" style="background-color: rgb(255, 83, 83);"><a href="{% url 'decline_bunk' i.id %}" class="text-white">Delete</a></button></td>
+
+                        </tr>
+                        {%endfor%}
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+</section>
+
+
+
+{%endblock%}

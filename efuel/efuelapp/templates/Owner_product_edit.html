@@ -1,0 +1,33 @@
+{% extends 'Owner_index.html'%} {% load static %} {% block content %}
+<div class="container mt-5 mb-5 pt-5 pb-5">
+    <h1 class="text-center mr-5 text-dark">Update Product</h1>
+    <div class="row">
+        <div class="col-md-12">
+        <form method="post" action="{% url 'edit_product_details' products.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form">
+        <label>Product Name:</label>
+        <input type="text" class="form-control" name="p_name" value="{{ products.product_name }}" required><br>
+        <label>Description:</label>
+        <input type="text" class="form-control" name="description" value="{{ products.description }}" required><br>
+        <label>Price:</label>
+        <input type="text" class="form-control" name="price" value="{{ products.price }}" required><br>
+        <label>Product image:</label>
+            <p>
+              <td>
+                <img src="{{ products.product_image.url }}" class="w-25">
+              </td>
+            </p>
+        <input type="file" name="file" class="form-control" accept="images/*" value="{{ products.product_image }}" required><br>
+        <center>
+        <button type="submit" class="btn btn-primary bg-danger">Update</button>
+        </center>
+        </div>
+        </form>
+    </div>
+
+</div>
+</div>
+
+
+{%endblock%}

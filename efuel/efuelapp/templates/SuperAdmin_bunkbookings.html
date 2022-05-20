@@ -1,0 +1,49 @@
+{% extends 'SuperAdmin_index.html'%} {% load static %} {% block content %}
+<section class="ftco-section">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section mt-3 mb-3"><span style="color: rgb(168, 168, 168);">Booking Details</span></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>Bunk Owner Id</th>
+                          <th>First Name</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Vehicle type</th>
+                          <th>Connector</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                          
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in booking %}
+                        <tr class="alert" role="alert">
+                          <td scope="row">{{ i.bunkowner_ide }}</td>
+                          <td>{{ i.name }}</td>
+                          <td>{{ i.email }}</td>
+                          <td>{{ i.phone }}</td>
+                          <td>{{ i.uservehicle_type }}</td>
+                          <td>{{ i.userconnector }}</td>
+                          <td>{{ i.date }}</td>
+                          <td>{{ i.time }}</td>
+                        </tr>
+                        {%endfor%}
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

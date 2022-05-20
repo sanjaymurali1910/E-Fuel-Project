@@ -1,0 +1,136 @@
+{% extends 'Owner_index.html'%} {% load static %} {% block content %}
+<head>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+          
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function()
+      {
+          $('.chkbox').click(function()
+          {
+              var text="";
+              $('.chkbox:checked').each(function()
+              {
+                  text+=$(this).val()+',';
+              });
+              $('#chktext').val(text);
+          });
+          $('#but1').click(function()
+          {
+            alert("record saved");
+          });
+      });
+  </script>
+      <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $('.chkboxx').click(function()
+            {
+                var text="";
+                $('.chkboxx:checked').each(function()
+                {
+                    text+=$(this).val()+',';
+                });
+                $('#chktextt').val(text);
+            });
+            $('#but1').click(function()
+            {
+              alert("record saved");
+            });
+        });
+    </script>
+</head>
+<div class="row">
+    <div class="col-75">
+      <div class="container-fluid">
+        <center><h2 class="mt-3 mb-3"><span style="color: rgb(168, 168, 168);">Add Bunk</span></h2></center>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-50">
+              <input type="text" id="name" name="bunkname" required placeholder="Bunk name">  
+            </div>
+            <div class="col-50">
+                    <label for="eca">Vehicle type:</label>
+                      <input type="checkbox" id="car" class="chkbox" value="car">
+                      <label for="car">Car</label>
+                      <input type="checkbox" id="bike" class="chkbox" value="bike">
+                      <label for="NSS">Bike</label>
+                      <input type="checkbox" id="auto" class="chkbox" value="auto">
+                      <label for="auto">Auto</label>
+                      <input  type="text" id="chktext" name="vehicletype"/>
+            </div><br>
+            </div>
+            <div class="row">
+              <div class="col-50">
+                <label>Connecters</label><br><br>
+                  
+                  <input type="checkbox" class="chkboxx" value="J1772">J1772<br><br>
+                  <input type="checkbox" class="chkboxx" value="Type 2">Type 2<br><br>
+                  <input type="checkbox" class="chkboxx" value="Type 3A">Type 3A<br><br>
+                  <input type="checkbox" class="chkboxx" value="Type 3C">Type 3C<br><br>
+                  <input type="checkbox" class="chkboxx" value="TeslaR">TeslaR<br><br>
+              </div>
+              <div class="col-50">
+                <label>Connecters</label><br><br>
+
+                  <input type="checkbox" class="chkboxx" value="CHAdMO">CHAdMO<br><br>
+                  <input type="checkbox" class="chkboxx" value="CCS 1">CCS 1<br><br>
+                  <input type="checkbox" class="chkboxx" value="CCS 2">CCS 2<br><br>
+                  <input type="checkbox" class="chkboxx" value="EU-Schuko">EU-Schuko<br><br>
+                  <input type="checkbox" class="chkboxx" value="Nema 15">Nema 15<br><br>
+                  <input  type="text" id="chktextt" name="connector"/>
+                  
+             </div>
+          </div>
+     <h3>Contact Information</h3>
+            <div class="row">
+              <div class="col-50">
+                  <input type="email" name="email" required placeholder="Email">
+              </div>
+              <div class="col-50">
+                 <input type="number" name="phone" required placeholder="Phone">
+             </div>
+             </div>
+              <div class="row">
+                <div class="col-50">
+                  <textarea name="address" id="address" placeholder="Street Address" rows="3" required></textarea>
+                </div>     
+           </div>
+           <div class="row">
+               <div class="col-50">
+                   <input type="text" name="city" required placeholder="City">
+               </div>
+               <div class="col-50">
+                  <input type="text" name="state" required placeholder="State">
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-50">
+                  <input type="number" name="pincode" required placeholder="Zip Code">
+              </div>
+              <div class="col-50">
+                 <input type="text" name="country" required placeholder="Country">
+             </div>
+          </div>
+          <div class="row">
+            <div class="col-50">
+            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Add Image</label>
+                
+                  <input type="file" class="form-control" id="exampleInputPassword2" name="file" placeholder="Add image" required>
+                </div>
+          </div>
+          <input type="submit" value="Book Now" class="btn">
+        </form>
+      </div>
+    </div>
+  </div>
+
+{%endblock%}

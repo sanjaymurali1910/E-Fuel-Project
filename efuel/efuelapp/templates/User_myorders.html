@@ -1,0 +1,52 @@
+{% extends 'User_index.html'%} {% load static %} {% block content %}
+<div class="container-fluid mt-5 mb-5 pb-5">
+<div class="row">
+    <div class="grid-margin col-lg-12 stretch-card">
+        <div class="card ">
+            <div class="card-body ">
+                <h4 class="card-title">My Orders</h4>
+                <div class="table-responsive pt-3">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Full name</th>
+                                <th>E-mail</th>
+                                <th>Items</th>
+                                <th>Price</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>zipcode</th>
+                                <th>date ordered</th>
+                                <th>Action</th>
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+                                {% for i in orders %}
+                                <tr>
+                                    <td>{{ i.id }}</td>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.email }}</td>
+                                    <td>{{ i.items }}</td>
+                                    <td>{{ i.price }}</td>
+                                    <td>{{ i.address }}</td>
+                                    <td>{{ i.city }}</td>
+                                    <td>{{ i.state }}</td>
+                                    <td>{{ i.zipcode }}</td>
+                                    <td>{{ i.date_added }}</td>
+                                    <td scope="row"><button class="btn btn-primary" style="background-color: rgb(255, 83, 83);"><a href="{% url 'cancel_order' i.id %}" class="text-white">Cancel</a></button></td>
+                                </tr>
+                                {% endfor %}
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

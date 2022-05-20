@@ -1,0 +1,36 @@
+{% extends 'Owner_index.html'%} {% load static %} {% block content %}
+
+<div class="container mt-5 mb-5 pt-5 pb-5">
+    <h1 class="text-center mr-5 text-dark">Edit Profile</h1>
+    <div class="row">
+        <div class="col-md-12">
+        <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form">
+        <label>Full Name:</label>
+        <input type="text" class="form-control" name="u_name" value="{{ pro.fullname }}" required><br>
+        <label>Pincode:</label>
+        <input type="number" class="form-control" name="pincode" value="{{ pro.pincode }}" required><br>
+        <label>District:</label>
+        <input type="text" class="form-control" name="district" value="{{ pro.district }}" required><br>
+        <label>State:</label>
+        <input type="text" class="form-control" name="state" value="{{ pro.state }}" required><br>
+        <label>Country:</label>
+        <input type="text" class="form-control" name="country" value="{{ pro.country }}" required><br>
+        <label>Mobile:</label>
+        <input type="number" class="form-control" name="mobile" value="{{ pro.mobile }}" required><br>
+        <label>Email:</label>
+        <input type="email" class="form-control" name="email" value="{{ pro.email}}" required><br>
+        <label>Change Password:</label>
+        <input type="password" class="form-control" name="password" value="{{ pro.password}}" ><br>
+        <center>
+        <button type="submit" class="btn btn-primary bg-danger">Update</button>
+        </center>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+{%endblock%}

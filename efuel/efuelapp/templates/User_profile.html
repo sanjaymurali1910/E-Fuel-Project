@@ -1,0 +1,28 @@
+{% extends 'User_index.html'%} {% load static %} {% block content %}
+
+<div class="container rounded  p-1 pt-5 pl-5 pr-5 pb-5 mt-5 mb-5 ">
+    <h1 class="text-center mb-3 text-light"><span class="text-primary">U</span>ser details</h1>
+        <div class="form">
+        {% for cust in mem1 %}
+        <label>Name</label>
+        <h1 class=" form-control">{{ cust.fullname }}</h1>
+        <label>Address:</label>
+        <p class=" form-control">{{ cust.pincode }}</p>
+        <label>E-mail:</label>
+        <h4 class=" form-control">{{ cust.district }}</h4>
+        <label>Phone No:</label>
+        <h4 class=" form-control">{{ cust.state }}</h4>
+        <label>Pincode:</label>
+        <h4 class=" form-control">{{ cust.country }}</h4>
+        <label>Pincode:</label>
+        <h4 class=" form-control">{{ cust.mobile }}</h4>
+        <label>Pincode:</label>
+        <h4 class=" form-control">{{ cust.email }}</h4>
+        <br>
+        <a class="btn btn-primary" href="{% url 'User_edit_profile' %}">Edit</a>
+        <br>
+        {% endfor %}
+</div>
+</div>
+
+{%endblock%}

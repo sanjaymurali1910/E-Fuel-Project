@@ -1,0 +1,51 @@
+{% extends 'Owner_index.html'%} {% load static %} {% block content %}
+<section class="ftco-section">
+    <div class="container-fluid mt-5 mb-5 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section mt-3 mb-3"><span style="color: rgb(168, 168, 168);">Booking Details</span></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>ID no.</th>
+                          <th>First Name</th>
+                          <th>Email</th>
+                          <th>Phone No</th>
+                          <th>Vehicle type</th>
+                          <th>Connector</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                          <th>Action</th>
+                          <th>Payment</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in bookings %}
+                        <tr class="alert" role="alert">
+                          <td scope="row">{{ i.user_ide }}</td>
+                          <td scope="row">{{ i.name }}</td>
+                          <td scope="row">{{ i.email }}</td>
+                          <td scope="row">{{ i.phone }}</td>
+                          <td scope="row">{{ i.uservehicle_type }}</td>
+                          <td scope="row">{{ i.userconnector }}</td>
+                          <td scope="row">{{ i.date }}</td>
+                          <td scope="row">{{ i.time }}</td>
+                          <td scope="row"><button class="btn btn-primary "  ><a href="{% url 'Owner_change_time' i.id %}" class="text-white">Change time</a></button></td>
+                          <td scope="row"><button class="btn btn-primary "  ><a href="{% url 'Owner_add_payment' i.id %}" class="text-white">Add Payment</a></button></td>
+                        </tr>
+                        {%endfor%}
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

@@ -1,0 +1,47 @@
+{% extends 'User_index.html'%} {% load static %} {% block content %}
+<section>
+    <div class="container-fluid mt-4 mb-5 pt-1 pb-5">
+        <center>
+            <h2 class="heading-section mt-3 mb-5 "><span style="color: rgb(168, 168, 168);">Booking Details</span></h2>
+        </center>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>ID no.</th>
+                          <th>First Name</th>
+                          <th>Vehicle type</th>
+                          <th>Connector</th>
+                          <th>Email</th>
+                          <th>Phone No</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                          <th>Action</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in mybooking %}
+                        <tr class="alert" role="alert">
+                          <td scope="row">{{ i.user_ide }}</td>
+                          <td scope="row">{{ i.name }}</td>
+                          <td scope="row">{{ i.uservehicle_type }}</td>
+                          <td scope="row">{{ i.userconnector }}</td>
+                          <td scope="row">{{ i.email }}</td>
+                          <td scope="row">{{ i.phone }}</td>
+                          <td scope="row">{{ i.date }}</td>
+                          <td scope="row">{{ i.time }}</td>
+                          <td scope="row"><button class="btn btn-primary" style="background-color: rgb(255, 83, 83);"><a href="{% url 'cancel_booking' i.id %}" class="text-white">Cancel</a></button></td>
+                        </tr>
+                        {%endfor%}
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

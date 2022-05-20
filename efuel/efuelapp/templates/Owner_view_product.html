@@ -1,0 +1,51 @@
+{% extends 'Owner_index.html'%} {% load static %} {% block content %}
+<section class="ftco-section">
+    <div class="container-fluid mt-5 mb-5 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section mt-3 mb-3"><span style="color: rgb(168, 168, 168);">Products details</span></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>Product Name</th>
+                          <th>Description</th>
+                          <th>Price</th>
+                          <th>Image</th>
+                          <th>Category</th>
+                          <th>Action</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for p in products %}
+                        <tr class="alert" role="alert">
+                          <td scope="row">{{ p.product_name }}</td>
+                          <td scope="row">{{ p.description }}</td>
+                          <td scope="row">{{ p.price }}</td>
+                          <td scope="row"><img src="{{ p.product_image.url }}" class="w-25"></td>
+                          <td scope="row">{{ p.category.category_name}}</td>
+                          <td scope="row"><button class="btn btn-primary "  ><a href="{% url 'Owner_product_edit' p.id %}" class="text-white">Edit</a></button>
+                            <br>
+                            <button class="btn btn-primary" style="background-color: rgb(255, 83, 83);"><a href="{% url 'delete_product' p.id %}" class="text-white">Delete</a></button>
+                        </td>
+                          <td>
+                              <a href="#" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                          </a>
+                        </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}
